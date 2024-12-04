@@ -95,7 +95,7 @@ export default {
       });
     });
   
-    strapi.io = io;
+    
   }
   
   

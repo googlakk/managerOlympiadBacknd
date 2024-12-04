@@ -36,7 +36,7 @@ import { toast } from "sonner";
 import useParticipantsStore from "@/store/useParticipantsStore";
 
 interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[];
+  columns: ColumnDef<Participants>[];
   data: TData[];
   params: {
     id: string;

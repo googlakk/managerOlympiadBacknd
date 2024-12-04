@@ -16,26 +16,27 @@ interface ParamsProps {
     id: string;
   };
 }
-export const initialOlympiadState: Olympiad = {
-  id: 0,
-  documentId: "",
-  heading: "Default Heading",
-  subHeading: "Default SubHeading",
-  dateStart: "2024-01-01",
-  dateEnd: "2024-01-02",
-  place: "Default Location",
-  disciplines: [],
-  startRegistration: false,
-  image: {
+
+
+export default function SingleOlympiadRoot({ params }: ParamsProps) {
+  const initialOlympiadState: Olympiad = {
     id: 0,
     documentId: "",
-    url: "",
-    alternativeText: "defailt Text",
-  },
-  streamSrc: "",
-};
-
-export default function SingleOlympiadRoot({ params }: Readonly<ParamsProps>) {
+    heading: "Default Heading",
+    subHeading: "Default SubHeading",
+    dateStart: "2024-01-01",
+    dateEnd: "2024-01-02",
+    place: "Default Location",
+    disciplines: [],
+    startRegistration: false,
+    image: {
+      id: 0,
+      documentId: "",
+      url: "",
+      alternativeText: "defailt Text",
+    },
+    streamSrc: "",
+  };
   const [results, setResults] = useState<Result[]>([]);
   const [olympiad, setOlympiad] = useState<Olympiad>(initialOlympiadState);
   const [loading, setLoading] = useState(true);
@@ -108,8 +109,7 @@ export default function SingleOlympiadRoot({ params }: Readonly<ParamsProps>) {
     };
   }, [params.id]);
 
-  console.log("winners from client", displayWinners);
-  console.log("res", results);
+
 
   const getOlymiad = async () => {
     setLoading(true);

@@ -26,16 +26,11 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { DataTablePagination } from "./ParticipantsPaginationTable";
 import { Input } from "@/components/ui/input";
+import { Participants } from "@/store/useOlympiadsStore";
 import React from "react";
-import { table } from "console";
 
 // Интерфейс участника
-interface Participants {
-  id: number;
-  firstName: string;
-  lastName: string;
-  age: string;
-}
+
 
 // Определение столбцов таблицы
 export const columnsUserAdd: ColumnDef<Participants>[] = [
@@ -52,7 +47,7 @@ export const columnsUserAdd: ColumnDef<Participants>[] = [
       />
     ),
     cell: ({ row, table }) => {
-      const user = row.original;
+      
       return (
         <Checkbox
           checked={row.getIsSelected()}

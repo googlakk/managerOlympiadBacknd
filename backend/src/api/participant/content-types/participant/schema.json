@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "participants",
+  "info": {
+    "singularName": "participant",
+    "pluralName": "participants",
+    "displayName": "Participant",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    },
+    "age": {
+      "type": "date"
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "participants"
+    },
+    "organization": {
+      "type": "string"
+    },
+    "scores": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::score.score",
+      "mappedBy": "participant"
+    },
+    "winners": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::winner.winner",
+      "mappedBy": "participant"
+    }
+  }
+}

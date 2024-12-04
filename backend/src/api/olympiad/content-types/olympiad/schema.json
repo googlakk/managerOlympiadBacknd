@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "olympiads",
+  "info": {
+    "singularName": "olympiad",
+    "pluralName": "olympiads",
+    "displayName": "Olympiad",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "subHeading": {
+      "type": "text"
+    },
+    "dateStart": {
+      "type": "date"
+    },
+    "dateEnd": {
+      "type": "date"
+    },
+    "place": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "active": {
+      "type": "boolean",
+      "default": false
+    },
+    "disciplines": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::subject.subject"
+    },
+    "streamSrc": {
+      "type": "text"
+    },
+    "description": {
+      "type": "blocks"
+    }
+  }
+}

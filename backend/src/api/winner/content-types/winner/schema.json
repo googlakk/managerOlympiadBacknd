@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "winners",
+  "info": {
+    "singularName": "winner",
+    "pluralName": "winners",
+    "displayName": "winner"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "place": {
+      "type": "string"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "winners"
+    },
+    "participant": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::participant.participant",
+      "inversedBy": "winners"
+    }
+  }
+}

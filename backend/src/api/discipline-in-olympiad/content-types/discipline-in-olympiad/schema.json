@@ -1,0 +1,14 @@
+{
+  "kind": "collectionType",
+  "collectionName": "discipline_in_olympiads",
+  "info": {
+    "singularName": "discipline-in-olympiad",
+    "pluralName": "discipline-in-olympiads",
+    "displayName": "DisciplineInOlympiad"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}

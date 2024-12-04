@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_layout_olympiad_sections",
+  "info": {
+    "displayName": "Olympiad section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "olympiads": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::olympiad.olympiad"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "subHeading": {
+      "type": "text"
+    }
+  }
+}

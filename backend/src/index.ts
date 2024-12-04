@@ -1,5 +1,11 @@
 import type { Core } from "@strapi/strapi";
+import { Server } from 'socket.io';
 
+declare module '@strapi/strapi' {
+  interface Strapi {
+    io?: Server;
+  }
+}
 export default {
   /**
    * An asynchronous register function that runs before

@@ -58,7 +58,7 @@ export function mapDataToResult(data: any): Result[] {
   }));
 }
 export function getStrapiURL() {
-  return process.env.NEXT_PUBLIC_STRAPI_URL ?? "http://localhost:1337";
+  return process.env.STRAPI_URL ?? "http://localhost:1337";
 }
 
 export function getStrapiMedia(url: string | null) {
@@ -69,7 +69,8 @@ export function getStrapiMedia(url: string | null) {
 }
 
 export function getEmbedUrl(youtubeUrl: string) {
-  const videoId = youtubeUrl.split('v=')[1]?.split('&')[0] || 
-                  youtubeUrl.split('youtu.be/')[1]?.split('?')[0];
+  const videoId =
+    youtubeUrl.split("v=")[1]?.split("&")[0] ||
+    youtubeUrl.split("youtu.be/")[1]?.split("?")[0];
   return videoId ? `https://youtube.com/embed/${videoId}` : null;
 }

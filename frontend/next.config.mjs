@@ -8,6 +8,10 @@ const nextConfig = {
         port: "1337",
         pathname: "/uploads/**/*",
       },
+      {
+        protocol: "https",
+        hostname: "ingenious-blessing-c1badf0d4b.media.strapiapp.com"
+      }
     ],
   },
   env: {

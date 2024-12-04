@@ -1,7 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { Result } from "./types";
-import { any } from "zod";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -58,7 +57,7 @@ export function mapDataToResult(data: any): Result[] {
   }));
 }
 export function getStrapiURL() {
-  return process.env.STRAPI_URL ?? "http://localhost:1337";
+  return process.env.STRAPI_URL;
 }
 
 export function getStrapiMedia(url: string | null) {

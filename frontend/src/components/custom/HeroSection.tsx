@@ -54,7 +54,7 @@ export const HeroSection = async ({
           className="mt-8 inline-flex items-center justify-center px-6 py-3 text-base font-medium text-black bg-white rounded-md shadow hover:bg-gray-100"
           href={linkUrl}
         >
-          {user.ok ? "Dashboard" : "Loggin"}
+          {user.ok ? "Dashboard" : ctaButton.text}
         </Link>
       </div>
     </div>

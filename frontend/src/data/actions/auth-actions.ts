@@ -119,12 +119,12 @@ export async function loginUserAction(prevState: any, formData: FormData) {
     };
   }
 
-  cookies().set("_vercel_jwt", responseData.jwt, config);
+  cookies().set("auth-jwt", responseData.jwt, config);
 
   redirect("/dashboard");
 }
 
 export async function logoutAction() {
-  cookies().set("_vercel_jwt", "", { ...config, maxAge: 0 });
+  cookies().set("auth-jwt", "", { ...config, maxAge: 0 });
   redirect("/");
 }

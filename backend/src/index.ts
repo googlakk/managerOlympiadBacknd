@@ -1,5 +1,4 @@
 import type { Core } from "@strapi/strapi";
-import { Server } from 'socket.io';
 
 export default {
   /**
@@ -27,18 +26,18 @@ export default {
         credentials: true,
       },
     });
-  
+
     // Глобальные объекты для хранения данных
     let resultsByOlympiad: Record<string, any> = {};
     let winnersByCategory: Record<string, any> = {};
-  
+
     io.on("connection", (socket) => {
       console.log("A user connected:", socket.id);
-  
+
       // Подключение клиента к конкретной олимпиаде
       socket.on("joinOlympiad", (olympiadId) => {
         socket.join(olympiadId); // Присоединяем клиента к комнате олимпиады
-  
+
         // Отправляем текущие данные об олимпиаде
         if (resultsByOlympiad[olympiadId]) {
           socket.emit("resultsUpdated", {
@@ -53,34 +52,38 @@ export default {
           });
         }
       });
-  
+
       // Обработка обновления результатов
       socket.on("updateResults", ({ olympiadId, results }) => {
-        console.log("Received results update for olympiad:", olympiadId, results);
-  
+        console.log(
+          "Received results update for olympiad:",
+          olympiadId,
+          results
+        );
+
         // Обновляем результаты
         resultsByOlympiad[olympiadId] = results;
-  
+
         // Отправляем обновления только участникам конкретной олимпиады
         io.to(olympiadId).emit("resultsUpdated", { olympiadId, results });
       });
-  
+
       // Обработка добавления победителей
       socket.on("updateWinners", ({ olympiadId, categoryId, winners }) => {
-        console.log("winnners from server", winners)
+        console.log("winnners from server", winners);
         console.log(
           `Received winners update for olympiad: ${olympiadId}, category: ${categoryId}`,
           winners
         );
-  
+
         // Инициализируем категорию, если нужно
         if (!winnersByCategory[olympiadId]) {
           winnersByCategory[olympiadId] = {};
         }
-  
+
         // Сохраняем победителей по категории
         winnersByCategory[olympiadId][categoryId] = winners;
-  
+
         // Отправляем обновления только участникам конкретной олимпиады
         io.to(olympiadId).emit("categoryWinnersUpdated", {
           olympiadId,
@@ -88,15 +91,11 @@ export default {
           winners,
         });
       });
-  
+
       // Обработка отключения
       socket.on("disconnect", () => {
         console.log("A user disconnected:", socket.id);
       });
     });
-  
-    
-  }
-  
-  
-}
+  },
+};

@@ -5,7 +5,6 @@ import {
 } from "../service/resultParticipant-service";
 import { getAllScores, getAllWinners } from "../loaders";
 
-import { Category } from "@/store/useOlympiadsStore";
 import { Winners } from "./../../lib/types";
 import { mutateData } from "../service/mutate-data";
 

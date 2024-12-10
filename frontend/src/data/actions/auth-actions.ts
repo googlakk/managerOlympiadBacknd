@@ -61,7 +61,7 @@ export async function registerUserAction(prevState: any, formData: FormData) {
       message: "Failed to Register.",
     };
   }
-
+  console.log(responseData.jwt)
   cookies().set("jwt", responseData.jwt, config);
   redirect("/dashboard");
 }

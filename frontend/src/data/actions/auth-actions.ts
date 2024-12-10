@@ -61,7 +61,7 @@ export async function registerUserAction(prevState: any, formData: FormData) {
       message: "Failed to Register.",
     };
   }
-  console.log(responseData.jwt)
+  console.log(responseData.jwt);
   cookies().set("jwt", responseData.jwt, config);
   redirect("/dashboard");
 }
@@ -119,12 +119,12 @@ export async function loginUserAction(prevState: any, formData: FormData) {
     };
   }
 
-  cookies().set("auth-jwt", responseData.jwt, config);
+  cookies().set("jwt", responseData.jwt, config);
 
   redirect("/dashboard");
 }
 
 export async function logoutAction() {
-  cookies().set("auth-jwt", "", { ...config, maxAge: 0 });
+  cookies().set("jwt", "", { ...config, maxAge: 0 });
   redirect("/");
 }

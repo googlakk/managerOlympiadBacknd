@@ -29,7 +29,9 @@ export async function generateMetadata(): Promise<Metadata> {
     description: description || "Intellectual League",
   };
 }
-
+const headerDataDefault = {
+  
+}
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -37,18 +39,21 @@ export default async function RootLayout({
 }>) {
   const globalData = await getGlobalData();
   const { blocks } = globalData;
-
+  
+  if(!blocks){
+    
+  }
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased  min-h-screen  grid grid-rows-[auto_1fr_auto]`}
       >
         <Toaster position="bottom-center" />
-        <Header data={blocks[0] || {}} />
+          <Header data={blocks[0]}/>
         <DataProvider>
           <main className=" w-full my-2">{children}</main>
         </DataProvider>
-        <Footer data={blocks[1] || {}} />
+          <Footer data={blocks[1]}/>
       </body>
     </html>
   );

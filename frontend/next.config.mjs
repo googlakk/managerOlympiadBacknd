@@ -10,15 +10,15 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: process.env.NEXT_PUBLIC_STRAPI_URL
-      }
+        hostname: "https://proud-birds-2d7b919473.strapiapp.com",
+      },
     ],
   },
   env: {
     OPENAI_API_KEY: process.env.OPENAI_API_KEY, // добавляем переменную окружения для API OpenAI
   },
   reactStrictMode: false,
-  productionBrowserSourceMaps: true
+  productionBrowserSourceMaps: true,
 };
 
 export default nextConfig;

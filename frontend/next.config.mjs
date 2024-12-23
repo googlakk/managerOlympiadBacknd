@@ -10,7 +10,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "ingenious-blessing-c1badf0d4b.media.strapiapp.com"
+        hostname: process.env.NEXT_PUBLIC_STRAPI_URL
       }
     ],
   },

@@ -11,6 +11,8 @@ import {
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { OlympiadCard } from "@/components/custom/Olympiads/SingleOlympiad";
+import SectionTitle from "@/components/common/SectionTitle";
 import { StrapiImage } from "@/components/custom/StrapiImage";
 import useOlympiadStore from "@/store/useOlympiadsStore";
 
@@ -18,48 +20,17 @@ export default function OlympiadsRoot() {
   const { olympiads } = useOlympiadStore();
 
   return (
-    <div className="grid grid-cols-3 p-2 gap-2">
-      {olympiads.map((olympiad) => (
-        <Card className="">
-          <CardHeader>
-            <CardTitle>{olympiad.heading}</CardTitle>
-            <CardDescription>{olympiad.subHeading}</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <StrapiImage
-              src={olympiad.image.url}
-              alt={olympiad.image.alternativeText || ""}
-              width={200}
-              height={140}
-              className={` object-cover w-full h-full`}
-              style={{
-                aspectRatio: "200/100",
-                objectFit: "cover",
-              }}
-            />
-            <div className=" flex gap-x-10 ">
-              <div>
-                <label className="text-sm text-muted-foreground">Начало:</label>
-                <p className="text-sm">{olympiad.dateEnd}</p>
-              </div>
-              <div>
-                <label className="text-sm text-muted-foreground">Начало:</label>
-                <p className="text-sm">{olympiad.dateEnd}</p>
-              </div>
+    <section className="relative z-10 overflow-hidden bg-white pb-16 pt-[120px] dark:bg-gray-dark md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]">
+      <SectionTitle title="Наши олимпиады" paragraph="Узнайте более подробнее о наших олимпиадах" center />
+      <div className="container">
+        <div className="-mx-4 flex flex-wrap justify-center">
+          {olympiads.map((olympiad, idx) => (
+            <div key={idx} className="w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3">
+              <OlympiadCard key={idx} data={olympiad} />
             </div>
-          </CardContent>
-          <CardFooter className="flex flex-col items-start">
-            <div className=" mb-2   ">
-              <label>Место проведения:</label>
-              <p>{olympiad.place}</p>
-            </div>
-
-            <Button>
-              <Link href={`/olympiads/${olympiad.documentId}`}>Подробнее</Link>
-            </Button>
-          </CardFooter>
-        </Card>
-      ))}
-    </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

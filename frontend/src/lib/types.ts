@@ -62,3 +62,11 @@ export enum CATEGORY_PLACES {
   third = "3",
   default = "",
 }
+
+
+export type Feature = {
+  id: number;
+  icon: JSX.Element;
+  title: string;
+  paragraph: string;
+};

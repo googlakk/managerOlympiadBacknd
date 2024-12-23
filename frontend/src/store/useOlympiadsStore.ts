@@ -28,7 +28,7 @@ export interface Olympiad {
   startRegistration: boolean;
   image: Image;
   streamSrc: string;
-  description?: string;
+  description: any[];
 }
 
 export interface Discipline {

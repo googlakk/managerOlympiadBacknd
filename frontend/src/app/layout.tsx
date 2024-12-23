@@ -6,6 +6,7 @@ import { DataProvider } from "@/components/custom/dataWrapper/dataWrapper";
 import { Footer } from "@/components/custom/Footer";
 import { Header } from "@/components/custom/Header";
 import type { Metadata } from "next";
+import ScrollToTop from "@/components/custom/ScrollToTop/ScrollToTop";
 import { Toaster } from "@/components/ui/sonner";
 import localFont from "next/font/local";
 
@@ -29,9 +30,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: description || "Intellectual League",
   };
 }
-const headerDataDefault = {
-  
-}
+const headerDataDefault = {};
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -39,21 +38,21 @@ export default async function RootLayout({
 }>) {
   const globalData = await getGlobalData();
   const { blocks } = globalData;
-  
-  if(!blocks){
-    
+
+  if (!blocks) {
   }
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased  min-h-screen  grid grid-rows-[auto_1fr_auto]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased  min-h-screen p-2 grid grid-rows-[auto_1fr_auto]`}
       >
         <Toaster position="bottom-center" />
-          <Header data={blocks[0]}/>
+        <Header data={blocks[0]} />
         <DataProvider>
           <main className=" w-full my-2">{children}</main>
         </DataProvider>
-          <Footer data={blocks[1]}/>
+        <ScrollToTop />
+        <Footer data={blocks[1]} />
       </body>
     </html>
   );

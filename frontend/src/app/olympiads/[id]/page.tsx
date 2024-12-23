@@ -36,6 +36,7 @@ export default function SingleOlympiadRoot({ params }: ParamsProps) {
       alternativeText: "defailt Text",
     },
     streamSrc: "",
+    description: []
   };
   const [results, setResults] = useState<Result[]>([]);
   const [olympiad, setOlympiad] = useState<Olympiad>(initialOlympiadState);

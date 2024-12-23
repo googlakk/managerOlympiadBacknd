@@ -10,7 +10,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "https://proud-birds-2d7b919473.strapiapp.com",
+        hostname: "proud-birds-2d7b919473.media.strapiapp.com",
       },
     ],
   },
